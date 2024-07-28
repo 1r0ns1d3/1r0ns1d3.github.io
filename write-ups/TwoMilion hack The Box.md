@@ -112,7 +112,7 @@ Nmap done: 1 IP address (1 host up) scanned in 97.97 seconds
 
 Port 22 ssh is ignored for now due to the low probability that there is a working exploit for ssh
 That means starting with port 80 http starting with accessing the webpage from the browser
-![[Pasted image 20240726115133.png]]
+<img src="Pasted%20image%2020240726115133.png">
 as seen the webpage tries to redirect me to http://2million.htb this is not a known DNS query so to resolve this I will add the address in the /etc/hosts file
 ![[Pasted image 20240726115348.png]]
 now the webpage should load correctly
