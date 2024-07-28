@@ -114,10 +114,10 @@ Port 22 ssh is ignored for now due to the low probability that there is a workin
 That means starting with port 80 http starting with accessing the webpage from the browser
 <img src="Pasted%20image%2020240726115133.png">
 as seen the webpage tries to redirect me to http://2million.htb this is not a known DNS query so to resolve this I will add the address in the /etc/hosts file
-![[Pasted image 20240726115348.png]]
+<img src="Pasted%20image%2020240726115348.png">
 now the webpage should load correctly
 on the login page a register button was found allowing me to go to /invite
-![[Pasted image 20240726120153.png]]
+<img src="Pasted%20image%2020240726120153.png">
 this page contained a javascript with the function makeInviteCode this function was called from the console to generate the following data: 
 Va beqre gb trarengr gur vaivgr pbqr, znxr n CBFG erdhrfg gb /ncv/i1/vaivgr/trarengr
 
@@ -125,7 +125,7 @@ this message was ROT13 encoded after decoding this message in cyberchef the clea
 In order to generate the invite code, make a POST request to /api/v1/invite/generate
 
 to do this I used Curl with the following command:
-![[Pasted image 20240726120350.png]]
+<img src="Pasted%20image%2020240726120350.png">
 as seen in the image it returned another code:
 QU9HRlgtODlHMVctUURKSDctSUlQODM=
 
@@ -133,41 +133,41 @@ This looks base64 encoded, so we will use cyberchef again to decode this message
 AOGFX-89G1W-QDJH7-IIP83
 
 this looks like it could be an invite code so let's try using it
-![[Pasted image 20240726120549.png]]
+<img src="Pasted%20image%2020240726120549.png">
 it works now we can register an account and continue our enumeration
-![[Pasted image 20240726120727.png]]
+<img src="Pasted%20image%2020240726120727.png">
 we are redirected to our homepage and from here we start enumerating again, and on the access page we find two buttons that make an API call
-![[Pasted image 20240726120931.png]]
+<img src="Pasted%20image%2020240726120931.png">
 using burpsuite and intercepting the request we adjust the request to probe the API
-![[Pasted image 20240726121303.png]]
+<img src="Pasted%20image%2020240726121303.png">
 and as we can see there are a couple of API calls available I will now try what can be achieved using the API calls
-![[Pasted image 20240726121616.png]]
+<img src="Pasted%20image%2020240726121616.png">
 we can see that we can update settings however we need to get the correct message content type
 as we have seen that the API uses JSON format this will be our first attempt
 "Content-Type: application/json"
 after tinkering a lot with the message and the formatting i get an update stating that my account is now admin
-![[Pasted image 20240726122211.png]]
+<img src="Pasted%20image%2020240726122211.png">
 going back to the API call we could generate a vpn connection for admin, now that we have an admin account we can try generating this file, after some more tinkering the file is generated and send to burp 
-![[Pasted image 20240726122505.png]]
+<img src="Pasted%20image%2020240726122505.png">
 unfortunately the openvpn file does not give me a connection, however the generation is a local process, so perhaps we could inject some commands
 it appears that the username parameter is vulnerable to a command injection attack
-![[Pasted image 20240726122755.png]]
+<img src="Pasted%20image%2020240726122755.png">
 after the first few attempts to get a reverse shell i get no response so I will try encoding the payloads as there may be some filtering mechanism
 after base 64 encoding and decoding in the payload i get a shell
-![[Pasted image 20240726123310.png]]
-![[Pasted image 20240726123254.png]]
+<img src="Pasted%20image%2020240726123310.png">
+<img src="Pasted%20image%2020240726123254.png">
 after some basic enumeration there appears to be a user named "admin"
 in the PWD after getting a shell there appears to be a hidden file that contains credentials for a user also named admin
-![[Pasted image 20240726123641.png]]
+<img src="Pasted%20image%2020240726123641.png">
 they should be DB passwords but let's see if password reuse is done
-![[Pasted image 20240726123747.png]]
+<img src="Pasted%20image%2020240726123747.png">
 the password is indeed being reused now we have control of the user in an attempt to get a more stable shell i will check to see if this user is allowed a SSH connection
 and that is indeed allowed this connection is way more stable and now I can release the old connection
 Now we start enumerating for root first checking sudo -l, however this user is not allowed to use sudo.
 after further enumeration in the /var/mail we find that admin has got mail
-![[Pasted image 20240726124607.png]]
+<img src="Pasted%20image%2020240726124607.png">
 this kernel might be exploitable
-![[Pasted image 20240726124631.png]]
+<img src="Pasted%20image%2020240726124631.png">
 it would appear that this kernel is vulnerable to the DirtyPipe exploit so I will try to use this exploit to gain a root shell
 afer using the exploit from https://github.com/xkaneiki/CVE-2023-0386 this github we get a root shell
-![[Pasted image 20240726131837.png]]
+<img src="Pasted%20image%2020240726131837.png">
