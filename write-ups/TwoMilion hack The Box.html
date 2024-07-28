@@ -32,103 +32,17 @@
                			<p>this command on its own takes over 3 hours to complete. so the -T5 argument is given to speed up the process, knowing that detection is not a relevant issue on hack the box.</p>
                   		<p>nmap -A -vv -p- 10.129.203.35 -Pn -T5</p>
                			<p>The command gave the following output</p>
-               			<p>Host discovery disabled (-Pn). All addresses will be marked &#39;up&#39; and scan times may be slower.</p>
-                		<p>Starting Nmap 7.94SVN ( <a href="https://nmap.org">https://nmap.org</a> ) at 2024-07-26 04:43 CDT</p>
-                  		<p>NSE: Loaded 156 scripts for scanning.</p>
-                  		<p>NSE: Script Pre-scanning.</p>
-                  			NSE: Starting runlevel 1 (of 3) scan.
-                  			Initiating NSE at 04:43
-                  			Completed NSE at 04:43, 0.00s elapsed
-                  			NSE: Starting runlevel 2 (of 3) scan.
-                  			Initiating NSE at 04:43
-                  			Completed NSE at 04:43, 0.00s elapsed
-                  			NSE: Starting runlevel 3 (of 3) scan.
-                  			Initiating NSE at 04:43
-                  			Completed NSE at 04:43, 0.00s elapsed
-                  			Initiating Parallel DNS resolution of 1 host. at 04:43
-                  			Completed Parallel DNS resolution of 1 host. at 04:43, 0.00s elapsed
-                  			Initiating SYN Stealth Scan at 04:43
-                  			Scanning 10.129.203.35 [65535 ports]
-                  			SYN Stealth Scan Timing: About 0.90% done
-                  			Discovered open port 22/tcp on 10.129.203.35
-                  			Discovered open port 80/tcp on 10.129.203.35
-                  			SYN Stealth Scan Timing: About 55.81% done; ETC: 04:45 (0:00:48 remaining)
-                  			Completed SYN Stealth Scan at 04:45, 82.21s elapsed (65535 total ports)
-                  			Initiating Service scan at 04:45
-                  			Scanning 2 services on 10.129.203.35
-                  			Completed Service scan at 04:45, 6.30s elapsed (2 services on 1 host)
-                  			Initiating OS detection (try #1) against 10.129.203.35
-                  			Retrying OS detection (try #2) against 10.129.203.35
-                  			Initiating Traceroute at 04:45
-                  			Completed Traceroute at 04:45, 0.15s elapsed
-                  			Initiating Parallel DNS resolution of 2 hosts. at 04:45
-                  			Completed Parallel DNS resolution of 2 hosts. at 04:45, 0.00s elapsed
-                  			NSE: Script scanning 10.129.203.35.
-                  			NSE: Starting runlevel 1 (of 3) scan.
-                  			Initiating NSE at 04:45
-                  			Completed NSE at 04:45, 4.07s elapsed
-                  			NSE: Starting runlevel 2 (of 3) scan.
-                  			Initiating NSE at 04:45
-                  			Completed NSE at 04:45, 0.59s elapsed
-                  			NSE: Starting runlevel 3 (of 3) scan.
-                  			Initiating NSE at 04:45
-                  			Completed NSE at 04:45, 0.00s elapsed
-                  			Nmap scan report for 10.129.203.35
-                  			Host is up, received user-set (0.13s latency).
-                  			Scanned at 2024-07-26 04:43:51 CDT for 98s
-                  			Not shown: 65533 closed tcp ports (reset)
-                  			PORT   STATE SERVICE REASON         VERSION
-                  			22/tcp open  ssh     syn-ack ttl 63 OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
-                  			| ssh-hostkey: 
-                  			|   256 3e:ea:45:4b:c5:d1:6d:6f:e2:d4:d1:3b:0a:3d:a9:4f (ECDSA)
-                  			| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJ+m7rYl1vRtnm789pH3IRhxI4CNCANVj+N5kovboNzcw9vHsBwvPX3KYA3cxGbKiA0VqbKRpOHnpsMuHEXEVJc=
-                  			|   256 64:cc:75:de:4a:e6:a5:b4:73:eb:3f:1b:cf:b4:e3:94 (ED25519)
-                  			|<em>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOtuEdoYxTohG80Bo6YCqSzUY9+qbnAFnhsk4yAZNqhM
-                  			80/tcp open  http    syn-ack ttl 63 nginx
-                  			| http-methods: 
-                  			|</em>  Supported Methods: GET HEAD POST OPTIONS
-                  			|_http-title: Did not follow redirect to <a href="http://2million.htb/">http://2million.htb/</a>
-                  			OS fingerprint not ideal because: Timing level 5 (Insane) used
-                  			Aggressive OS guesses: Linux 5.0 (97%), Linux 4.15 - 5.8 (96%), Linux 5.3 - 5.4 (95%), Linux 2.6.32 (95%), Linux 5.0 - 5.5 (95%), Linux 3.1 (95%), Linux 3.2 (95%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (95%), ASUS RT-N56U WAP (Linux 3.4) (93%), Linux 3.16 (93%)
-                  			No exact OS matches for host (test conditions non-ideal).
-                  			TCP/IP fingerprint:
-                  			SCAN(V=7.94SVN%E=4%D=7/26%OT=22%CT=1%CU=37405%PV=Y%DS=2%DC=T%G=N%TM=66A37039%P=x86_64-pc-linux-gnu)
-                  			SEQ(SP=107%GCD=1%ISR=10B%TI=Z%CI=Z%II=I%TS=A)
-                  			OPS(O1=M53CST11NW7%O2=M53CST11NW7%O3=M53CNNT11NW7%O4=M53CST11NW7%O5=M53CST11NW7%O6=M53CST11)
-                  			WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)
-                  			ECN(R=Y%DF=Y%T=40%W=FAF0%O=M53CNNSNW7%CC=Y%Q=)
-                  			T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)
-                  			T2(R=N)
-                  			T3(R=N)
-                  			T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
-                  			T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
-                  			T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
-                  			T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
-                  			U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)
-                  			IE(R=Y%DFI=N%T=40%CD=S)</p>
-                  			<p>Uptime guess: 40.924 days (since Sat Jun 15 06:35:33 2024)
-                  			Network Distance: 2 hops
-                  			TCP Sequence Prediction: Difficulty=263 (Good luck!)
-                  			IP ID Sequence Generation: All zeros
-                  			Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel</p>
-                  			<p>TRACEROUTE (using port 15972/tcp)
-                  			HOP RTT       ADDRESS
-                  			1   145.25 ms 10.10.14.1
-                  			2   145.56 ms 10.129.203.35</p>
-                  			<p>NSE: Script Post-scanning.
-                  			NSE: Starting runlevel 1 (of 3) scan.
-                  			Initiating NSE at 04:45
-                  			Completed NSE at 04:45, 0.00s elapsed
-                  			NSE: Starting runlevel 2 (of 3) scan.
-                  			Initiating NSE at 04:45
-                  			Completed NSE at 04:45, 0.00s elapsed
-                  			NSE: Starting runlevel 3 (of 3) scan.
-                  			Initiating NSE at 04:45
-                  			Completed NSE at 04:45, 0.00s elapsed
-                  			Read data files from: /usr/bin/../share/nmap
-                  			OS and Service detection performed. Please report any incorrect results at <a href="https://nmap.org/submit/">https://nmap.org/submit/</a> .
-                  			<p>Nmap done: 1 IP address (1 host up) scanned in 97.97 seconds</p>
-                  			     <p>Raw packets sent: 67460 (2.970MB) | Rcvd: 66190 (2.651MB)</p>
+                                 	<p>PORT   STATE SERVICE REASON         VERSION</p>
+                  			<p>22/tcp open  ssh     syn-ack ttl 63 OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)</p>
+                  			<p>| ssh-hostkey: </p>
+                  			<p>|   256 3e:ea:45:4b:c5:d1:6d:6f:e2:d4:d1:3b:0a:3d:a9:4f (ECDSA)</p>
+                  			<p>| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJ+m7rYl1vRtnm789pH3IRhxI4CNCANVj+N5kovboNzcw9vHsBwvPX3KYA3cxGbKiA0VqbKRpOHnpsMuHEXEVJc=</p>
+                  			<p>|   256 64:cc:75:de:4a:e6:a5:b4:73:eb:3f:1b:cf:b4:e3:94 (ED25519)</p>
+                  			<p>|<em>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOtuEdoYxTohG80Bo6YCqSzUY9+qbnAFnhsk4yAZNqhM</p>
+                  			<p>80/tcp open  http    syn-ack ttl 63 nginx</p>
+                  			<p>| http-methods: </p>
+                  			<p>|</em>  Supported Methods: GET HEAD POST OPTIONS</p>
+                  			<p>|_http-title: Did not follow redirect to <a href="http://2million.htb/">http://2million.htb/</a></p>
                   			<p>Port 22 ssh is ignored for now due to the low probability that there is a working exploit for ssh.</p>
                   			<p>That means starting with port 80 http starting with accessing the webpage from the browser</p>
                   			<p><img src="static/img/Pasted%20image%2020240726115133.png"></p>
