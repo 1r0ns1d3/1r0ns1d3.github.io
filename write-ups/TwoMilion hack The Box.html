@@ -25,17 +25,17 @@
 		    <div class="bg" style="background-image: url(../static/img/lock_background.png); 
 			background-size: cover;">
 		
-               			<p>after connecting to the network thru VPN I start with scanning the machine for open ports.
-                  			nmap -A -vv -p- 10.129.203.35</p>
-               			<p>Due to a rather slow connection or pings being blocked the scan does not complete and i have to adjust the command.
-                			nmap -A -vv -p- 10.129.203.35 -Pn</p>
-               			<p>this command on its own takes over 3 hours to complete. so the -T5 argument is given to speed up the process, knowing that detection is not a relevant issue on hack the box.
-                  			nmap -A -vv -p- 10.129.203.35 -Pn -T5</p>
+               			<p>after connecting to the network thru VPN I start with scanning the machine for open ports.</p>
+                  		<p>nmap -A -vv -p- 10.129.203.35</p>
+               			<p>Due to a rather slow connection or pings being blocked the scan does not complete and i have to adjust the command.<p/>
+                		<p></p>nmap -A -vv -p- 10.129.203.35 -Pn</p>
+               			<p>this command on its own takes over 3 hours to complete. so the -T5 argument is given to speed up the process, knowing that detection is not a relevant issue on hack the box.</p>
+                  		<p>nmap -A -vv -p- 10.129.203.35 -Pn -T5</p>
                			<p>The command gave the following output</p>
-               			<p>Host discovery disabled (-Pn). All addresses will be marked &#39;up&#39; and scan times may be slower.
-                		  	Starting Nmap 7.94SVN ( <a href="https://nmap.org">https://nmap.org</a> ) at 2024-07-26 04:43 CDT
-                  			NSE: Loaded 156 scripts for scanning.
-                  			NSE: Script Pre-scanning.
+               			<p>Host discovery disabled (-Pn). All addresses will be marked &#39;up&#39; and scan times may be slower.</p>
+                		<p>Starting Nmap 7.94SVN ( <a href="https://nmap.org">https://nmap.org</a> ) at 2024-07-26 04:43 CDT</p>
+                  		<p>NSE: Loaded 156 scripts for scanning.</p>
+                  		<p>NSE: Script Pre-scanning.</p>
                   			NSE: Starting runlevel 1 (of 3) scan.
                   			Initiating NSE at 04:43
                   			Completed NSE at 04:43, 0.00s elapsed
@@ -127,8 +127,8 @@
                   			Completed NSE at 04:45, 0.00s elapsed
                   			Read data files from: /usr/bin/../share/nmap
                   			OS and Service detection performed. Please report any incorrect results at <a href="https://nmap.org/submit/">https://nmap.org/submit/</a> .
-                  			Nmap done: 1 IP address (1 host up) scanned in 97.97 seconds
-                  			     Raw packets sent: 67460 (2.970MB) | Rcvd: 66190 (2.651MB)</p>
+                  			<p>Nmap done: 1 IP address (1 host up) scanned in 97.97 seconds</p>
+                  			     <p>Raw packets sent: 67460 (2.970MB) | Rcvd: 66190 (2.651MB)</p>
                   			<p>Port 22 ssh is ignored for now due to the low probability that there is a working exploit for ssh.</p>
                   			<p>That means starting with port 80 http starting with accessing the webpage from the browser</p>
                   			<p><img src="static/img/Pasted%20image%2020240726115133.png"></p>
